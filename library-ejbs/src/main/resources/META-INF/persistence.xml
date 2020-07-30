@@ -7,12 +7,14 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
  		<class>org.demo.entities.User</class>
+ 		<class>org.demo.entities.Book</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.demo.util.SQLiteDialect"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="false"/>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:sqllite-database-library.db"/>	
+			<property name="hibernate.connection.autocommit" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

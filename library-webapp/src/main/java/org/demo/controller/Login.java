@@ -9,7 +9,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.demo.business.LoginBusiness;
-import org.demo.dto.PersonaDto;
 import org.demo.dto.SecurityAccessDto;
 
 import java.util.ArrayList;

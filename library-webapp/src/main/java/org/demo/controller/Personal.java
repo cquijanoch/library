@@ -6,8 +6,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
-import org.demo.dto.PersonaDto;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class Personal {
   
-
+/**
     @GET
     public List<PersonaDto> obtenerPersona(){
     	List<PersonaDto> listaPersona=new ArrayList<PersonaDto>();
@@ -49,5 +47,5 @@ public class Personal {
     @Path("{id}")
     public void deletePerson(@PathParam("id") Long id) {
         
-    }
+    }**/
 }

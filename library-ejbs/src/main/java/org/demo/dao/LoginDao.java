@@ -28,7 +28,7 @@ public class LoginDao extends GeneralDao{
         	response.setNickname(user.getNickname());
         	response.setId(user.getId());//encript(id)
         	response.setPassword(user.getPassword());//encript(password)
-        	response.setJwt(TokenHandler.getInstance().createTokenForSession(response));
+        	response.setJwt(TokenHandler.getInstance().createTokenForSession(response));//add jwt to db;
         }
         catch(NoResultException e)
 		{
