@@ -1,5 +1,5 @@
 
-#Library Demo
+# Library Demo
 
 This maven project contains three child projects compose for:
 1. library-ear: this project builds the EAR artifact.
@@ -8,7 +8,7 @@ This maven project contains three child projects compose for:
 The root pom.xml builds each of the subprojects
 
 
-##Quickstart
+## Quickstart
 1. Import Projects.
 2. Build pom.xml of root project.
 3. Run on Server (Wildfly20 tested) the subproject *library-ear*.
