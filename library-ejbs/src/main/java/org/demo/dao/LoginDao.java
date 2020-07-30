@@ -2,6 +2,7 @@ package org.demo.dao;
 
 import java.util.logging.Logger;
 
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
@@ -17,13 +18,17 @@ public class LoginDao extends GeneralDao{
 	
 	public SecurityAccessDto identityUser(String nickname, String password)
 	{
+		EntityManager entityManager = getEntityManager();
 		SecurityAccessDto response = new SecurityAccessDto();
-		Query q = getEntityManager().createQuery("SELECT u FROM User u WHERE u.nickname = :nickname AND u.password = :password ");
-        q.setParameter("nickname", nickname);
-        q.setParameter("password", password);
-       
+		response.setNickname(nickname);
+    	response.setNickname(password);
+    	
         try
         {
+        	Query q = entityManager.createQuery("SELECT u FROM User u WHERE u.nickname = :nickname AND u.password = :password ");
+            q.setParameter("nickname", nickname);
+            q.setParameter("password", password);
+            
         	User user = (User) q.getSingleResult();
         	response.setNickname(user.getNickname());
         	response.setId(user.getId());//encript(id)
@@ -34,11 +39,12 @@ public class LoginDao extends GeneralDao{
 		{
         	logger.info(logger.getName());
         	logger.warning(e.getMessage());
-        	response.setNickname(nickname);
-        	response.setNickname(password);
-	        return response;
 	    }
-		
+        finally
+        {
+        	if (entityManager != null)
+        		entityManager.close();
+		}
 		return response;
 		
 	}
